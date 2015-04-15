@@ -1,6 +1,7 @@
 <template name="postsList">
-    <div class="posts">
-        {{#each posts}}
+    <!--Getting value from js file using the template name "postsList" -->
+    <div class="post">
+        {{#each post}}
             {{> postItem}}
         {{/each}}
     </div>

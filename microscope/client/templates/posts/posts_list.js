@@ -3,7 +3,7 @@
  * Pulling data from the database and returning the value to postData
  */
 Template.postsList.helpers({
-    posts: function() {
+    post: function() {
         return Posts.find();
     }
 });
