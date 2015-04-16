@@ -13,6 +13,14 @@ Meteor.methods({
             url: String
         }); //check to see that it contains a title and url string
 
+        if (Meteor.isServer) {
+            postAttributes.title += "(server)";
+// wait for 5 seconds
+            Meteor._sleepForMs(5000);
+        } else {
+            postAttributes.title += "(client)";
+        }
+
         var postWithSameLink = Posts.findOne({url: postAttributes.url});
         if (postWithSameLink) {
             return {
