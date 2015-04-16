@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83e33a45-f0a9-488e-aace-42e1bb4b7370" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microscope/client/templates/application/layout.html" afterPath="$PROJECT_DIR$/microscope/client/templates/application/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microscope/client/main.html" afterPath="$PROJECT_DIR$/microscope/client/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microscope/.meteor/packages" afterPath="$PROJECT_DIR$/microscope/.meteor/packages" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microscope/lib/collections/posts.js" afterPath="$PROJECT_DIR$/microscope/lib/collections/posts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microscope/client/templates/posts/posts_list.js" afterPath="$PROJECT_DIR$/microscope/client/templates/posts/posts_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microscope/lib/router.js" afterPath="$PROJECT_DIR$/microscope/lib/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/microscope/.meteor/versions" afterPath="$PROJECT_DIR$/microscope/.meteor/versions" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="83e33a45-f0a9-488e-aace-42e1bb4b7370" name="Default" comment="" />
     <ignored path="MeteorTesting.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -511,10 +502,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="3" y="23" width="971" height="983" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33063585" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33063585" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33063585" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
