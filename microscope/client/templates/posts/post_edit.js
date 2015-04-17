@@ -12,7 +12,7 @@ Template.postEdit.events({
 
         var postWithSameLink = Posts.findOne({url: postProperties.url});
         if (postWithSameLink) {
-            alert("Post URL exist");
+            throwError("Post URL exist");
             Router.go('postPage', {_id: currentPostId});
         }
         else
