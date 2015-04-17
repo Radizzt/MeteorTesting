@@ -16,6 +16,13 @@ Router.route('/posts/:_id', {
     data: function() { return Posts.findOne(this.params._id); }
 });
 
+//Post Edit
+Router.route('/posts/:_id/edit', {
+    name: 'postEdit',
+    data: function() { return Posts.findOne(this.params._id); }
+});
+
+
 //Submit Route
 Router.route('/submit', {name: 'postSubmit'});
 
