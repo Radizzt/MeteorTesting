@@ -16,7 +16,14 @@ Posts.deny({
     }
 });
 
-
+validatePost = function (post) {
+    var errors = {};
+    if (!post.title)
+        errors.title = "Please fill in a headline";
+    if (!post.url)
+        errors.url = "Please fill in a URL";
+    return errors;
+}
 
 //starting Meteor methods
 Meteor.methods({
@@ -26,6 +33,10 @@ Meteor.methods({
             title: String,
             url: String
         }); //check to see that it contains a title and url string
+
+        var errors = validatePost(postAttributes);
+        if (errors.title || errors.url)
+            throw new Meteor.Error('invalid-post', "You must set a title and URL for your post");
 
         var postWithSameLink = Posts.findOne({url: postAttributes.url});
         if (postWithSameLink) {
