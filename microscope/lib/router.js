@@ -10,6 +10,15 @@ Router.configure({
     waitOn: function() { return Meteor.subscribe('posts');}
 });
 
+Router.configure({
+    layoutTemplate: 'layout',
+    loadingTemplate: 'loading',
+    notFoundTemplate: 'notFound',
+    waitOn: function() {
+        return [Meteor.subscribe('posts'), Meteor.subscribe('notifications')]
+    }
+});
+
 //Name of the route will look for a template with the same name - postsList in this case
 Router.route('/', {name: 'postsList'});
 
