@@ -4,8 +4,12 @@
  * setup Posts to be published in its entirety.
  * name does not need to be 'posts'
  */
-Meteor.publish('posts', function() {
-    return Posts.find();
+Meteor.publish('posts', function(options) {
+    check(options, {
+        sort: Object,
+        limit: Number
+    });
+    return Posts.find({}, options);
 });
 
 Meteor.publish('comments', function(postId) {
