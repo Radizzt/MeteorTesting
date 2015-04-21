@@ -12,6 +12,23 @@ Router.configure({
     }
 });
 
+PostsListController = RouteController.extend({
+    template: 'postsList',
+    increment: 5,
+    postsLimit: function() {
+        return parseInt(this.params.postsLimit) || this.increment;
+    },
+    findOptions: function() {
+        return {sort: {submitted: -1}, limit: this.postsLimit()};
+    },
+    waitOn: function() {
+        return Meteor.subscribe('posts', this.findOptions());
+    },
+    data: function() {
+        return {posts: Posts.find({}, this.findOptions())};
+    }
+});
+
 //Name of the route will look for a template with the same name - postsList in this case
 Router.route('/posts/:_id', {
     name: 'postPage',
@@ -32,17 +49,7 @@ Router.route('/posts/:_id/edit', {
 Router.route('/submit', {name: 'postSubmit'});
 
 Router.route('/:postsLimit?', {
-    name: 'postsList',
-    waitOn: function() {
-        var limit = parseInt(this.params.postsLimit) || 5;
-        return Meteor.subscribe('posts', {sort: {submitted: -1}, limit: limit});
-    },
-    data: function() {
-        var limit = parseInt(this.params.postsLimit) || 5;
-        return {
-            posts: Posts.find({}, {sort: {submitted: -1}, limit: limit})
-        };
-    }
+    name: 'postsList'
 });
 
 var requireLogin = function() {
