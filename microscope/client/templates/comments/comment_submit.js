@@ -23,7 +23,7 @@ Template.commentSubmit.events({
             postId: template.data._id
         };
         var errors = {};
-        if (! comment.body) {
+        if (!comment.body) {
             errors.body = "Please write some content";
             return Session.set('commentSubmitErrors', errors);
         }
