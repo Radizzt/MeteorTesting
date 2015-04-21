@@ -4,6 +4,12 @@
  * setup Posts to be published in its entirety.
  * name does not need to be 'posts'
  */
+
+Meteor.publish('singlePost', function(id) {
+    check(id, String)
+    return Posts.find(id);
+});
+
 Meteor.publish('posts', function(options) {
     check(options, {
         sort: Object,
