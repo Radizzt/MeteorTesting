@@ -67,6 +67,9 @@ Meteor.methods({
         };
     },
 
+    /*“find all the posts with this id that this user hasn’t yet voted for, and
+     update them in this way”.*/
+
     upvote: function(postId) {
         check(this.userId, String);
         check(postId, String);

@@ -10,10 +10,16 @@ apse" data-target="#navigation">
                     <span class="icon-bar"></span>
                 </button>
                 <!-- {{pathFor}} is an Iron Router feature that let us point the path with the same route name - postList in this case -->
-                <a class="navbar-brand" href="{{pathFor 'postsList'}}">Microscope</a>
+                <a class="navbar-brand" href="{{pathFor 'home'}}">Microscope</a>
             </div>
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{pathFor 'newPosts'}}">New</a>
+                    </li>
+                    <li>
+                        <a href="{{pathFor 'bestPosts'}}">Best</a>
+                    </li>
                     {{#if currentUser}}
                         <li>
                             <a href="{{pathFor 'postSubmit'}}">Submit Post</a>

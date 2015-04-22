@@ -19,7 +19,7 @@ PostsListController = RouteController.extend({
         return parseInt(this.params.postsLimit) || this.increment;
     },
     findOptions: function() {
-        return {sort: {submitted: -1}, limit: this.postsLimit()};
+        return {sort: this.sort, limit: this.postsLimit()};
     },
     subscriptions: function() {
         this.postsSub = Meteor.subscribe('posts', this.findOptions());
@@ -29,15 +29,34 @@ PostsListController = RouteController.extend({
     },
     data: function() {
         var hasMore = this.posts().count() === this.postsLimit();
-        var nextPath = this.route.path({postsLimit: this.postsLimit() + this.increment});
         return {
             posts: this.posts(),
-            nextPath: hasMore ? nextPath : null
+            ready: this.postsSub.ready,
+            nextPath: hasMore ? this.nextPath() : null
         };
     }
 });
+NewPostsController = PostsListController.extend({
+    sort: {submitted: -1, _id: -1},
+    nextPath: function() {
+        return Router.routes.newPosts.path({postsLimit: this.postsLimit() + this.increment})
+    }
+});
+BestPostsController = PostsListController.extend({
+    sort: {votes: -1, submitted: -1, _id: -1},
+    nextPath: function() {
+        return Router.routes.bestPosts.path({postsLimit: this.postsLimit() + this.increment})
+    }
+});
 
-//Name of the route will look for a template with the same name - postsList in this case
+Router.route('/', {
+    name: 'home',
+    controller: NewPostsController
+});
+Router.route('/new/:postsLimit?', {name: 'newPosts'});
+Router.route('/best/:postsLimit?', {name: 'bestPosts'});
+
+//Name of the route will look for a template with the same name - postsPage in this case
 Router.route('/posts/:_id', {
     name: 'postPage',
     waitOn: function() {
@@ -61,10 +80,6 @@ Router.route('/posts/:_id/edit', {
 
 //Submit Route
 Router.route('/submit', {name: 'postSubmit'});
-
-Router.route('/:postsLimit?', {
-    name: 'postsList'
-});
 
 var requireLogin = function() {
     if (! Meteor.user()) {
