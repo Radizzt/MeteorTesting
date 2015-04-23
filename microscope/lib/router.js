@@ -93,5 +93,16 @@ var requireLogin = function() {
     }
 }
 
-Router.onBeforeAction('dataNotFound', {only: 'postPage'});
-Router.onBeforeAction(requireLogin, {only: 'postSubmit'});
+Router.route('/feed.xml', {
+    where: 'server',
+    name: 'rss',
+    action: function() {
+        this.response.write('hello world');
+        this.response.end();
+    }
+});
+
+if (Meteor.isClient){
+    Router.onBeforeAction('dataNotFound', {only: 'postPage'});
+    Router.onBeforeAction(requireLogin, {only: 'postSubmit'});
+}
