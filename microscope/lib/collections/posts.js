@@ -61,6 +61,14 @@ Meteor.methods({
             upvoters: [],
             votes: 0
         });
+
+        // shorten link URL
+        if(Meteor.isServer){
+            var shortUrl = Bitly.shortenURL(post.url);
+            if(post.url && shortUrl)
+                post.shortUrl = shortUrl;
+        }
+
         var postId = Posts.insert(post);
         return {
             _id: postId
