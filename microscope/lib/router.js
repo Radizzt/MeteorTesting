@@ -117,6 +117,16 @@ Router.route('/feed.xml', {
     }
 });
 
+Router.route('/api/posts', {
+    where: 'server',
+    name: 'apiPosts',
+    action: function() {
+        var data = Posts.find().fetch();
+        this.response.write(JSON.stringify(data));
+        this.response.end();
+    }
+});
+
 if (Meteor.isClient){
     Router.onBeforeAction('dataNotFound', {only: 'postPage'});
     Router.onBeforeAction(requireLogin, {only: 'postSubmit'});
