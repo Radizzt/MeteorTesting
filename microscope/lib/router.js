@@ -49,12 +49,20 @@ BestPostsController = PostsListController.extend({
     }
 });
 
+ClickedPostsController = PostsListController.extend({
+    sort: {clicks: -1, submitted: -1, _id: -1},
+    nextPath: function() {
+        return Router.routes.clickedPosts.path({postsLimit: this.postsLimit() + this.increment})
+    }
+});
+
 Router.route('/', {
     name: 'home',
     controller: NewPostsController
 });
 Router.route('/new/:postsLimit?', {name: 'newPosts'});
 Router.route('/best/:postsLimit?', {name: 'bestPosts'});
+Router.route('/clicked/:postsLimit?', {name: 'clickedPosts'});
 
 //Name of the route will look for a template with the same name - postsPage in this case
 Router.route('/posts/:_id', {
